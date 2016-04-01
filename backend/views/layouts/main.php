@@ -306,7 +306,7 @@ AppAsset::register($this);
                   <li>
                     <div class="text-center">
                       <a href="inbox.html">
-                        <strong>See All Alerts</strong>
+                        <strong>See test vvvbvbv All Alerts</strong>
                         <i class="fa fa-angle-right"></i>
                       </a>
                     </div>
