@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use backend\models\Category;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Tour */
@@ -13,6 +14,21 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+      <?php
+        $model1=new Category();
+        //$parent_cat=array();
+      $category=$model1::findAll(['parent_id'=>0]);
+      foreach ($category as $category)
+      {
+       $key=$category->category_id;
+       $value=$category->category_name;
+       $parent_cat["$key"]= $value;
+      }
+     
+      
+   echo $form->field($model, 'category')->dropDownList($parent_cat,['prompt'=>'Select category']);
+   ?>
+    <div id="sub"></div>
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     <?php
       $days=array('1'=>'1days','2'=>'2days','3'=>'3days','4'=>'4days','5'=>'5days','6'=>'6days','7'=>'7days','8'=>'8days');
