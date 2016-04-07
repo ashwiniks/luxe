@@ -50,7 +50,7 @@ return [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => ['v1/tour', 'v1/sda', 'v1/booth']],
                 'OPTIONS v1/user/login' => 'v1/user/login',
-                'GET v1/tour/getdata' => 'v1/tour/getdata',
+                'GET v1/tour/gettours' => 'v1/tour/gettours',
                 'POST v2/user/login' => 'v2/user/login',
                 'POST v1/sda/addsda' => 'v1/sda/addsda',
                 'POST v1/sda/removesda' => 'v1/sda/removesda',

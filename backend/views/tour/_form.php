@@ -28,7 +28,11 @@ use backend\models\Category;
       
    echo $form->field($model, 'category')->dropDownList($parent_cat,['prompt'=>'Select category']);
    ?>
-    <div id="sub"></div>
+    <div >
+        <label id="sub1" for="tour-subcategory" class="control-label">SubCategory</label>
+        <select  id="sub" class="form-control" name="Tour[subcategory]"></select>
+        
+    </div>
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
     <?php
       $days=array('1'=>'1days','2'=>'2days','3'=>'3days','4'=>'4days','5'=>'5days','6'=>'6days','7'=>'7days','8'=>'8days');

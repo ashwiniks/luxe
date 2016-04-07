@@ -35,7 +35,7 @@ class Tour extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'days', 'excerpt', 'image', 'created_at', 'updated_at'], 'required'],
+            [['title','category','subcategory','price', 'days', 'excerpt', 'image', 'created_at', 'updated_at'], 'required'],
             [['excerpt'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 1000],
