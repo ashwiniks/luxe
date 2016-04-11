@@ -275,9 +275,7 @@
             <div class="wsa_tab">
               <ul>
                 <li> <a href="#widget_global_search_1"> 
-				<svg version="1.1" id="widget_global_search_icon_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="48.999px" height="48.999px" viewBox="0 0 48.999 48.999" style="enable-background:new 0 0 48.999 48.999;"
-	 xml:space="preserve">
+				
                   <g>
                     <path d="M20.255,35.438c0-0.003-0.001-0.005-0.002-0.008C20.295,35.453,20.319,35.464,20.255,35.438z M20.181,35.365
 		c-0.066-0.012,0.019,0.034,0.074,0.064C20.239,35.396,20.215,35.371,20.181,35.365z M25.726,22.385c0,0,0.011,0.012,0.025,0.026

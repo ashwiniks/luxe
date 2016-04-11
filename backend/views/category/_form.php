@@ -20,7 +20,7 @@ use backend\models\Category;
 
     
    <?php
-    echo $form->field($model, 'parent_id')->dropDownList(ArrayHelper::map(Category::find()->all(),'category_id','category_name'),['prompt'=>'Select category name']);
+    echo $form->field($model, 'parent_id')->dropDownList(ArrayHelper::map(Category::find()->all(),'category_id','category_name'),['empty'=>'Select category name']);
    ?>
 
     <?= $form->field($model, 'sort_order')->textInput() ?>
