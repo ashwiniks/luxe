@@ -17,6 +17,14 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
+         'urlManagerFrontend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'myfrontend/absolutepath/uploads/',//i.e. $_SERVER['DOCUMENT_ROOT'] .'/yiiapp/web/'
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+        
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

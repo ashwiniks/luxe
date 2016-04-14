@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
 use Yii;
-use frontend\models\Tour;
-use app\models\TourSearch;
+use backend\models\Inclusion;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\data\Pagination;
+
 /**
- * TourController implements the CRUD actions for Tour model.
+ * InclusionController implements the CRUD actions for Inclusion model.
  */
-class TourController extends Controller
+class InclusionController extends Controller
 {
     public function behaviors()
     {
@@ -27,22 +27,22 @@ class TourController extends Controller
     }
 
     /**
-     * Lists all Tour models.
+     * Lists all Inclusion models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TourSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Inclusion::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Tour model.
+     * Displays a single Inclusion model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class TourController extends Controller
     }
 
     /**
-     * Creates a new Tour model.
+     * Creates a new Inclusion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Tour();
+        $model = new Inclusion();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class TourController extends Controller
     }
 
     /**
-     * Updates an existing Tour model.
+     * Updates an existing Inclusion model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class TourController extends Controller
     }
 
     /**
-     * Deletes an existing Tour model.
+     * Deletes an existing Inclusion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,52 +104,18 @@ class TourController extends Controller
     }
 
     /**
-     * Finds the Tour model based on its primary key value.
+     * Finds the Inclusion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Tour the loaded model
+     * @return Inclusion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Tour::findOne($id)) !== null) {
+        if (($model = Inclusion::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
-    
-    public function actionAlltour() {
-          // build a DB query to get all articles with status = 1
-          $query = Tour::find();
-          //print_r($query);
-          
-
-// get the total number of articles (but do not fetch the article data yet)
-          $count = $query->count();
-
-// create a pagination object with the total count
-          $pagination = new Pagination(['totalCount' => $count,'pageSize'=>4]);
-        
-// limit the query using the pagination and retrieve the articles
-          $tours = $query->offset($pagination->offset)
-                  ->limit($pagination->limit)
-                  ->all();
-          return $this->render('alltour',['pagination'=>$pagination,'tours'=>$tours]);
-      }
-      
-      public function actionDetails($id)
-      {
-          $tour=  Tour::findOne($id);
-          $itneries= $tour->getItineries()->all();
-          $galleries=$tour->getGalleries()->all();
-          $includes=$tour->getInclusions()->all();
-          $excludes=$tour->getExcludes()->all();
-          
-     return $this->render('details',['tour'=>$tour,'itneries'=>$itneries,'galleries'=>$galleries,'includes'=>$includes,'excludes'=>$excludes
-        ]);
-          
-      }
-
-  }
+}

@@ -1,8 +1,9 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
+use backend\models\Itinery;
 
 /**
  * This is the model class for table "tour".
@@ -52,4 +53,29 @@ class Tour extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    
+    
+    public function getItineries()
+    {
+        return $this->hasMany(Itinery::className(), ['tour_id' => 'id']);
+    }
+    
+     public function getGalleries()
+    {
+        return $this->hasMany(\backend\models\Gallery::className(), ['tour_id' => 'id']);
+    }
+    
+      public function getInclusions()
+    {
+        return $this->hasMany(\backend\models\Inclusion::className(), ['tour_id' => 'id']);
+    }
+    
+    
+    public function getExcludes()
+    {
+        
+        return $this->hasMany(\backend\models\Exclude::className(),['tour_id' => 'id']);
+    }
+
+    
 }

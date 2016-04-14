@@ -50,4 +50,17 @@ class Category extends \yii\db\ActiveRecord
             'sort_order' => 'Sort Order',
         ];
     }
+    
+    public function beforeSave($insert) {
+        if(parent::beforeSave($insert))
+        {
+            if($this->parent_id == "")
+            {
+                $this->parent_id = 1;
+                
+            }
+            return TRUE;
+        }
+        
+    }
 }

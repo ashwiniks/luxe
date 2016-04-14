@@ -21,10 +21,10 @@ use backend\models\Category;
       foreach ($category as $category)
       {
        $key=$category->category_id;
-       $value=$category->category_name;
+       $value =$category->category_name;
        $parent_cat["$key"]= $value;
       }
-     
+      print_r($parent_cat);
       
    echo $form->field($model, 'category')->dropDownList($parent_cat,['prompt'=>'Select category']);
    ?>

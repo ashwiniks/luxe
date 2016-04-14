@@ -5965,6 +5965,7 @@ position:relative;
 }
 .thumb_wrape img {
     width: 100%;
+    
 }
 
 .pagination_bottom {
@@ -5993,6 +5994,7 @@ position:relative;
 }
 .grid_sorting .thumb_wrape{
 	overflow:hidden;
+        max-height: 250px;
 }
 
 
